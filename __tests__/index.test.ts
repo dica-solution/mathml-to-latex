@@ -734,7 +734,7 @@ describe('#convert', () => {
 
         const result = MathMLToLaTeX.convert(mathml);
 
-        expect(result).toMatch('\\left(x + y\\right)^{2}');
+        expect(result).toMatch('x + y^{2}');
       });
     });
 
@@ -744,7 +744,7 @@ describe('#convert', () => {
 
         const result = MathMLToLaTeX.convert(mathml);
 
-        expect(result).toMatch('\\left(x + y\\right)^{2 + 2}');
+        expect(result).toMatch('x + y^{2 + 2}');
       });
     });
 
@@ -786,7 +786,7 @@ describe('#convert', () => {
 
         const result = MathMLToLaTeX.convert(mathml);
 
-        expect(result).toMatch('\\left(x + y\\right)_{2}');
+        expect(result).toMatch('x + y_{2}');
       });
     });
 
@@ -796,7 +796,7 @@ describe('#convert', () => {
 
         const result = MathMLToLaTeX.convert(mathml);
 
-        expect(result).toMatch('\\left(x + y\\right)_{2 + 2}');
+        expect(result).toMatch('x + y_{2 + 2}');
       });
     });
 
