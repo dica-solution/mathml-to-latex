@@ -7,6 +7,10 @@ export class MathMLToLaTeX {
     const mathmlElementsToLaTeXConverters = mathmlElements.map((mathMLElement) =>
       new MathMLElementToLatexConverterAdapter(mathMLElement).toLatexConverter(),
     );
-    return mathmlElementsToLaTeXConverters.map((toLatexConverters) => toLatexConverters.convert()).join('');
+    return mathmlElementsToLaTeXConverters
+      .map((toLatexConverters) => toLatexConverters.convert())
+      .join('')
+      .replace(/' '/g, "''")
+      .replace(/\\text{\d*?\s*⋮\s*}/g, '\\vdots');
   }
 }
