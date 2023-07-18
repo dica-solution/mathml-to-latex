@@ -33,11 +33,11 @@ class TextCommand {
   private get _commands(): string[] {
     switch (this._mathvariant) {
       case 'bold':
-        return ['\\textbf'];
+        return ['\\text'];
       case 'italic':
         return ['\\textit'];
       case 'bold-italic':
-        return ['\\textit', '\\textbf'];
+        return ['\\textit', '\\text'];
       case 'double-struck':
         return ['\\mathbb'];
       case 'monospace':
