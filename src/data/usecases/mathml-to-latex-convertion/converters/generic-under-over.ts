@@ -37,13 +37,14 @@ class UnderOverSetter {
   }
 
   apply(content: string, accent: string) {
-    return latexAccents.includes(accent) ? `${accent}{${content}}` : `${this._defaultCommand}{${accent}}{${content}}`;
+    // return latexAccents.includes(accent) ? `${accent}{${content}}` : `${this._defaultCommand}{${accent}}{${content}}`;
+    return `${accent}{${content}}`;
   }
 
-  private get _defaultCommand(): string {
-    if (this._type === TagTypes.Under) return '\\underset';
-    return '\\overset';
-  }
+  // private get _defaultCommand(): string {
+  //   if (this._type === TagTypes.Under) return '\\underset';
+  //   return '\\overset';
+  // }
 }
 
 enum TagTypes {
