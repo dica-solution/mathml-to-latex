@@ -37,7 +37,6 @@ class UnderOverSetter {
   }
 
   apply(content: string, accent: string) {
-    console.log({ content, accent });
     return latexAccents.includes(accent) ? `${accent}{${content}}` : `${this._defaultCommand}{${content}}`;
   }
 

@@ -5,7 +5,9 @@ export class GenericWrapper {
   protected _close: string;
 
   constructor(open: string, close: string) {
+    console.log({ open, close });
     if (open === '{') this._open = '\\left\\' + open;
+    else if (open === '〈' || open === '') this._open = '\\left\\{';
     else this._open = '\\left' + open;
     if (close === '}') this._close = '\\right .\\' + close;
     else this._close = '\\right .' + close;
