@@ -3,7 +3,7 @@ import { makeToMathElementsConverter } from './factories';
 
 export class MathMLToLaTeX {
   static convert(mathml: string): string {
-    const mathmlElements = makeToMathElementsConverter().convert(mathml);
+    const mathmlElements = makeToMathElementsConverter().convert(mathml.replace(/&nbsp;/g, ''));
     const mathmlElementsToLaTeXConverters = mathmlElements.map((mathMLElement) =>
       new MathMLElementToLatexConverterAdapter(mathMLElement).toLatexConverter(),
     );
