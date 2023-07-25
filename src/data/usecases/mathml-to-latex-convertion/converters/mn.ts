@@ -11,6 +11,6 @@ export class MN implements ToLaTeXConverter {
 
   convert(): string {
     const normalizedValue = normalizeWhiteSpaces(this._mathmlElement.value);
-    return normalizedValue.trim();
+    return normalizedValue.trim().replace('#', '\\#');
   }
 }

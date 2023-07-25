@@ -1,4 +1,5 @@
 export const allMathSymbolsByGlyph: Record<string, string> = {
+  '%': '\\%',
   ' ': '\\textrm{ }',
   '∃': '\\exists',
   '∀': '\\forall',

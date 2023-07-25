@@ -16,11 +16,13 @@ export class MTable implements ToLaTeXConverter {
       .map((converter) => converter.convert())
       .join(' \\\\\n');
 
-    return this._hasFlag('innerTable') ? this._wrap(tableContent) : tableContent;
+    // return this._hasFlag('innerTable') ? this._wrap(tableContent) : tableContent;
+    return this._wrap(tableContent);
   }
 
   private _wrap(latex: string): string {
-    return `\\begin{matrix}${latex}\\end{matrix}`;
+    // return `\\begin{matrix}${latex}\\end{matrix}`;
+    return `\\begin{array}{l}${latex}\\end{array}`;
   }
 
   private _addFlagRecursiveIfName(mathmlElements: MathMLElement[], name: string, flag: string): void {
