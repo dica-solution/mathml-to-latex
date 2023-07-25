@@ -24,10 +24,11 @@ class TextCommand {
   }
 
   apply(value: string) {
-    return this._commands.reduce((acc, command, index) => {
+    const result = this._commands.reduce((acc, command, index) => {
       if (index === 0) return `${command}{${value}}`;
       return `${command}{${acc}}`;
     }, '');
+    return result;
   }
 
   private get _commands(): string[] {
