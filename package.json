@@ -11,7 +11,7 @@
     "test": "jest --passWithNoTests --noStackTrace --runInBand",
     "test:verbose": "jest --passWithNoTests --runInBand",
     "test:watch": "npm run test -- --watch",
-    "prepare": "yarn && yarn build"
+    "prepare": "yarn build"
   },
   "repository": {
     "type": "git",
