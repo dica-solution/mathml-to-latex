@@ -23,8 +23,12 @@ export class MSup implements ToLaTeXConverter {
       return `${base} \\text{\\textasciicircum}`;
     }
 
-    if (base.length > 1) {
+    if (base.trim().length > 1) {
       return `${new BracketWrapper().wrap(base)}^${new BracketWrapper().wrap(exponent)}`;
+    }
+
+    if (base.trim().length === 0) {
+      return new BracketWrapper().wrap(exponent);
     }
 
     return `${base}^${new BracketWrapper().wrap(exponent)}`;
