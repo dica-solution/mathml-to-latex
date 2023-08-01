@@ -10,13 +10,9 @@ export class GenericSpacingWrapper implements ToLaTeXConverter {
   }
 
   convert(): string {
-    return (
-      ' ' +
-      this._mathmlElement.children
-        .map((child) => mathMLElementToLaTeXConverter(child))
-        .map((converter) => converter.convert())
-        .join('')
-        .trim()
-    );
+    return this._mathmlElement.children
+      .map((child) => mathMLElementToLaTeXConverter(child))
+      .map((converter) => converter.convert())
+      .join('');
   }
 }
