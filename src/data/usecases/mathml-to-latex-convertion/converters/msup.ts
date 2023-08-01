@@ -19,7 +19,7 @@ export class MSup implements ToLaTeXConverter {
     const base = mathMLElementToLaTeXConverter(children[0]).convert();
     const exponent = mathMLElementToLaTeXConverter(children[1]).convert();
 
-    if (exponent === '\\hat') {
+    if (exponent.trim() === '\\hat') {
       return `${base} \\text{\\textasciicircum}`;
     }
 

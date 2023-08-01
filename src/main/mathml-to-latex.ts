@@ -11,6 +11,7 @@ export class MathMLToLaTeX {
       .map((toLatexConverters) => toLatexConverters.convert())
       .join('')
       .replace(/' '/g, "''")
-      .replace(/\\text{\d*?\s*⋮\s*}/g, '\\vdots');
+      .replace(/\\text{\d*?\s*⋮\s*}/g, '\\vdots ')
+      .replace(/[]/g, ' ');
   }
 }

@@ -15,7 +15,7 @@ export class MI implements ToLaTeXConverter {
     if (normalizedValue === ' ') return Character.apply(normalizedValue);
 
     const trimmedValue = normalizedValue.trim();
-    return ` ${Character.apply(trimmedValue)}`;
+    return Character.apply(trimmedValue);
   }
 }
 
@@ -31,7 +31,8 @@ class Character {
   }
 
   private _apply(): string {
-    return this._findByCharacter() || this._findByGlyph() || this._value;
+    const character = this._findByCharacter() || this._findByGlyph();
+    return (character && character + ' ') || this._value;
   }
 
   private _findByCharacter(): string | undefined {

@@ -30,7 +30,8 @@ class Operator {
   }
 
   private _operate(): string {
-    return this._findByCharacter() || this._findByGlyph() || this._value;
+    const character = this._findByCharacter() || this._findByGlyph();
+    return (character && character + ' ') || this._value;
   }
 
   private _findByCharacter(): string | undefined {
