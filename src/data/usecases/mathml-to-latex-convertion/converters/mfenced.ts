@@ -17,7 +17,7 @@ export class MFenced implements ToLaTeXConverter {
       typeof this._mathmlElement.attributes.separators === 'undefined'
         ? ''
         : this._mathmlElement.attributes.separators === ''
-        ? ['']
+        ? [' ']
         : this._mathmlElement.attributes.separators,
     );
   }
