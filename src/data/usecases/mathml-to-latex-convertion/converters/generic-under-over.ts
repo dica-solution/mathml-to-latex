@@ -37,7 +37,11 @@ class UnderOverSetter {
   }
 
   apply(content: string, accent: string) {
-    return latexAccents.includes(accent) ? `${accent}{${content}}` : `${this._defaultCommand}{${content}}`;
+    return latexAccents.includes(accent)
+      ? `${accent}{${content}}`
+      : content === '\\rightarrow'
+      ? content
+      : `${this._defaultCommand}{${content}}`;
   }
 
   private get _defaultCommand(): string {
