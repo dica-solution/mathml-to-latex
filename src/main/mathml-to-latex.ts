@@ -10,6 +10,7 @@ export class MathMLToLaTeX {
     return mathmlElementsToLaTeXConverters
       .map((toLatexConverters) => toLatexConverters.convert())
       .join('')
+      .trim()
       .replace(/'\s+'\s+'/g, "'''")
       .replace(/'\s+'/g, "''")
       .replace(/\\text{\d*?\s*⋮\s*}/g, '\\vdots ')

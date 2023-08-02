@@ -31,8 +31,7 @@ class Character {
   }
 
   private _apply(): string {
-    const character = this._findByCharacter() || this._findByGlyph();
-    return (character && character + ' ') || this._value;
+    return this._findByCharacter() || this._findByGlyph() || this._value;
   }
 
   private _findByCharacter(): string | undefined {
