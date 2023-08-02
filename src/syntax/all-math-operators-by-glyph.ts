@@ -1,5 +1,6 @@
 export const allMathOperatorsByGlyph: Record<string, string> = {
   _: '\\underline',
+  '#': '\\#',
   '⏡': '\\underbrace',
   '⏠': '\\overbrace',
   '⏟': '\\underbrace',

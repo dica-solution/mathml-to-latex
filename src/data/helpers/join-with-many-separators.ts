@@ -18,7 +18,6 @@ export class JoinWithManySeparators {
 
   private _get(index: number) {
     if (this._separators[index]) return this._separators[index];
-    // return this._separators.length > 0 ? this._separators[this._separators.length - 1] : ',';
-    return this._separators.length > 0 ? this._separators[this._separators.length - 1] : ' ';
+    return this._separators.length > 0 ? this._separators[this._separators.length - 1] : ', ';
   }
 }

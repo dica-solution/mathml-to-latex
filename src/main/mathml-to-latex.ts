@@ -10,7 +10,14 @@ export class MathMLToLaTeX {
     return mathmlElementsToLaTeXConverters
       .map((toLatexConverters) => toLatexConverters.convert())
       .join('')
-      .replace(/' '/g, "''")
-      .replace(/\\text{\d*?\s*⋮\s*}/g, '\\vdots');
+      .trim()
+      .replace(/'\s+'\s+'/g, "'''")
+      .replace(/'\s+'/g, "''")
+      .replace(/\\text{\d*?\s*⋮\s*}/g, '\\vdots ')
+      .replace(/[]/g, ' ')
+      .replace(/\^\s*\{([^\{\}]+?)\s*\}\s*('+)/g, '^{$1$2}')
+      .replace(/('+)\s*_\{([^\{\}]+?)\}/g, '{$1}_{$2}')
+      .replace(/[\^\_]\{\s*\}/g, '')
+      .replace(/\\underline(?!\s*\{)/g, '\\_');
   }
 }

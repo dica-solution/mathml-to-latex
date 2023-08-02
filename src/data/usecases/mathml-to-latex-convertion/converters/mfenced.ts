@@ -13,7 +13,13 @@ export class MFenced implements ToLaTeXConverter {
     this._mathmlElement = mathmlElement;
     this._open = this._mathmlElement.attributes.open || '';
     this._close = this._mathmlElement.attributes.close || '';
-    this._separators = Array.from(this._mathmlElement.attributes.separators || '');
+    this._separators = Array.from(
+      typeof this._mathmlElement.attributes.separators === 'undefined'
+        ? ''
+        : this._mathmlElement.attributes.separators === ''
+        ? [' ']
+        : this._mathmlElement.attributes.separators,
+    );
   }
 
   convert(): string {

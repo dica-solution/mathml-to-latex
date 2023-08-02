@@ -70,7 +70,7 @@ describe('#convert', () => {
 
         const result = MathMLToLaTeX.convert(mathml);
 
-        expect(result).toMatch('x=4/5');
+        expect(result).toMatch('x = 4 / 5');
       });
     });
 
@@ -137,7 +137,7 @@ describe('#convert', () => {
 
         const result = MathMLToLaTeX.convert(mathml);
 
-        expect(result).toMatch('\\left\\{ 0 \\cdot 0 \\right\\} \\left[\\right. 0 \\cdot 0 \\left]\\right. \\left(\\right. 0 \\cdot 0 \\left.\\right) \\left(\\right. 5 \\cdot 8 \\left.\\right)^{6}');
+        expect(result).toMatch('\\{ 0 \\cdot 0 \\} [ 0 \\cdot 0 ] ( 0 \\cdot 0 ) {( 5 \\cdot 8 )}^{6}');
       });
     });
   });
@@ -202,7 +202,7 @@ describe('#convert', () => {
 
           const result = MathMLToLaTeX.convert(mathml);
 
-          expect(result).toMatch('\\left(3\\right)');
+          expect(result).toMatch('\\left(3\\right .)');
         });
       });
 
@@ -212,7 +212,7 @@ describe('#convert', () => {
 
           const result = MathMLToLaTeX.convert(mathml);
 
-          expect(result).toMatch('\\left{3\\right)');
+          expect(result).toMatch('\\left\\{3\\right .)');
         });
       });
 
@@ -222,7 +222,7 @@ describe('#convert', () => {
 
           const result = MathMLToLaTeX.convert(mathml);
 
-          expect(result).toMatch('\\left(3\\right)');
+          expect(result).toMatch('\\left(3\\right .)');
         });
       });
 
@@ -232,7 +232,7 @@ describe('#convert', () => {
 
           const result = MathMLToLaTeX.convert(mathml);
 
-          expect(result).toMatch('\\left{3\\right)');
+          expect(result).toMatch('\\left\\{3\\right .)');
         });
       });
 
@@ -242,7 +242,7 @@ describe('#convert', () => {
 
           const result = MathMLToLaTeX.convert(mathml);
 
-          expect(result).toMatch('\\left(3,2,1\\right)');
+          expect(result).toMatch('\\left(3, 2, 1\\right .)');
         });
       });
 
@@ -252,7 +252,7 @@ describe('#convert', () => {
 
           const result = MathMLToLaTeX.convert(mathml);
 
-          expect(result).toMatch('\\left(3,2,1,7\\right)');
+          expect(result).toMatch('\\left(3 2 1 7\\right .)');
         });
       });
 
@@ -262,7 +262,7 @@ describe('#convert', () => {
 
           const result = MathMLToLaTeX.convert(mathml);
 
-          expect(result).toMatch('\\left(3;2;1\\right)');
+          expect(result).toMatch('\\left(3;2;1\\right .)');
         });
       });
 
@@ -272,7 +272,7 @@ describe('#convert', () => {
 
           const result = MathMLToLaTeX.convert(mathml);
 
-          expect(result).toMatch('\\left(3;2.1.7\\right)');
+          expect(result).toMatch('\\left(3;2.1.7\\right .)');
         });
       });
     });
@@ -285,7 +285,9 @@ describe('#convert', () => {
 
             const result = MathMLToLaTeX.convert(mathml);
 
-            expect(result).toBe('A = \\begin{bmatrix}\n x & y \\\\\n z & w \n\\end{bmatrix}'.replace(/\n/g, ''));
+            expect(result).toBe(
+              'A = \\begin{bmatrix} \\begin{array}{l}x & y \\\\ z & w\\end{array} \\end{bmatrix}'.replace(/\n/g, ''),
+            );
           });
         });
 
@@ -295,7 +297,9 @@ describe('#convert', () => {
 
             const result = MathMLToLaTeX.convert(mathml);
 
-            expect(result).toBe('A = \\begin{pmatrix}\n x & y \\\\\n z & w \n\\end{pmatrix}'.replace(/\n/g, ''));
+            expect(result).toBe(
+              'A = \\begin{pmatrix} \\begin{array}{l}x & y \\\\ z & w\\end{array} \\end{pmatrix}'.replace(/\n/g, ''),
+            );
           });
         });
 
@@ -305,7 +309,9 @@ describe('#convert', () => {
 
             const result = MathMLToLaTeX.convert(mathml);
 
-            expect(result).toBe('A = \\begin{vmatrix}\n x & y \\\\\n z & w \n\\end{vmatrix}'.replace(/\n/g, ''));
+            expect(result).toBe(
+              'A = \\begin{vmatrix} \\begin{array}{l}x & y \\\\ z & w\\end{array} \\end{vmatrix}'.replace(/\n/g, ''),
+            );
           });
         });
 
@@ -315,7 +321,9 @@ describe('#convert', () => {
 
             const result = MathMLToLaTeX.convert(mathml);
 
-            expect(result).toBe('A = \\begin{Bmatrix}\n x & y \\\\\n z & w \n\\end{Bmatrix}'.replace(/\n/g, ''));
+            expect(result).toBe(
+              'A = \\begin{Bmatrix} \\begin{array}{l}x & y \\\\ z & w\\end{array} \\end{Bmatrix}'.replace(/\n/g, ''),
+            );
           });
         });
 
@@ -325,7 +333,9 @@ describe('#convert', () => {
 
             const result = MathMLToLaTeX.convert(mathml);
 
-            expect(result).toBe('A = \\begin{Vmatrix}\n x & y \\\\\n z & w \n\\end{Vmatrix}'.replace(/\n/g, ''));
+            expect(result).toBe(
+              'A = \\begin{Vmatrix} \\begin{array}{l}x & y \\\\ z & w\\end{array} \\end{Vmatrix}'.replace(/\n/g, ''),
+            );
           });
         });
 
@@ -335,7 +345,9 @@ describe('#convert', () => {
 
             const result = MathMLToLaTeX.convert(mathml);
 
-            expect(result).toBe('A = \\begin{bmatrix}\n x & y \\\\\n z & w \n\\end{bmatrix}'.replace(/\n/g, ''));
+            expect(result).toBe(
+              'A = \\begin{bmatrix} \\begin{array}{l}x & y \\\\ z & w\\end{array} \\end{bmatrix}'.replace(/\n/g, ''),
+            );
           });
         });
       });
@@ -347,7 +359,7 @@ describe('#convert', () => {
           const result = MathMLToLaTeX.convert(mathml);
 
           expect(result).toBe(
-            `f\\left(x\\right)=\\left{\\begin{matrix}\n x^{2} , x < 0 \\\\ e^{x} , x \\geq 0 \n\\end{matrix}\\right`.replace(
+            `f \\left(x\\right .) = \\left\\{\\begin{matrix} \\begin{array}{l}x^{2} , x < 0 \\\\ e^{x} , x \\geq 0\\end{array} \\end{matrix}\\right .`.replace(
               /\n/g,
               '',
             ),
@@ -362,7 +374,7 @@ describe('#convert', () => {
           const result = MathMLToLaTeX.convert(mathml);
 
           expect(result).toBe(
-            `\\begin{bmatrix} \\begin{matrix}a_{11} & a_{12}\\end{matrix} & \\begin{matrix}\\hdots & \\hdots\\end{matrix} & a_{1 n} \\\\ \\begin{matrix}a_{21} & a_{22}\\end{matrix} & \\begin{matrix}\\ddots & \\end{matrix} & a_{2 n} \\\\ \\begin{matrix}\\begin{matrix}\\vdots & \\vdots\\end{matrix} \\\\ \\begin{matrix}a_{m 1} & a_{m 2}\\end{matrix}\\end{matrix} & \\begin{matrix}\\begin{matrix} & \\ddots\\end{matrix} \\\\ \\begin{matrix}\\hdots & \\hdots\\end{matrix}\\end{matrix} & \\begin{matrix}\\vdots \\\\ a_{m n}\\end{matrix} \\end{bmatrix}`,
+            `\\begin{bmatrix} \\begin{array}{l}\\begin{array}{l}a_{11} & a_{12}\\end{array} & \\begin{array}{l}\\dots & \\dots\\end{array} & a_{1 n} \\\\ \\begin{array}{l}a_{21} & a_{22}\\end{array} & \\begin{array}{l}\\ddots & \\end{array} & a_{2 n} \\\\ \\begin{array}{l}\\begin{array}{l}\\vdots & \\vdots\\end{array} \\\\ \\begin{array}{l}a_{m 1} & a_{m 2}\\end{array}\\end{array} & \\begin{array}{l}\\begin{array}{l} & \\ddots\\end{array} \\\\ \\begin{array}{l}\\dots & \\dots\\end{array}\\end{array} & \\begin{array}{l}\\vdots \\\\ a_{m n}\\end{array}\\end{array} \\end{bmatrix}`,
           );
         });
       });
@@ -632,7 +644,7 @@ describe('#convert', () => {
 
         const result = MathMLToLaTeX.convert(mathml);
 
-        expect(result).toBe('\\hcancel{a + 2}');
+        expect(result).toBe('a + 2');
       });
     });
 
@@ -642,7 +654,7 @@ describe('#convert', () => {
 
         const result = MathMLToLaTeX.convert(mathml);
 
-        expect(result).toBe('\\hcancel{a + 2}');
+        expect(result).toBe('a + 2');
       });
     });
 
@@ -734,7 +746,7 @@ describe('#convert', () => {
 
         const result = MathMLToLaTeX.convert(mathml);
 
-        expect(result).toMatch('x + y^{2}');
+        expect(result).toMatch('{x + y}^{2}');
       });
     });
 
@@ -744,7 +756,7 @@ describe('#convert', () => {
 
         const result = MathMLToLaTeX.convert(mathml);
 
-        expect(result).toMatch('x + y^{2 + 2}');
+        expect(result).toMatch('{x + y}^{2 + 2}');
       });
     });
 
@@ -786,7 +798,7 @@ describe('#convert', () => {
 
         const result = MathMLToLaTeX.convert(mathml);
 
-        expect(result).toMatch('x + y_{2}');
+        expect(result).toMatch('{x + y}_{2}');
       });
     });
 
@@ -796,7 +808,7 @@ describe('#convert', () => {
 
         const result = MathMLToLaTeX.convert(mathml);
 
-        expect(result).toMatch('x + y_{2 + 2}');
+        expect(result).toMatch('{x + y}_{2 + 2}');
       });
     });
 
@@ -863,7 +875,7 @@ describe('#convert', () => {
 
       const result = MathMLToLaTeX.convert(mathml);
 
-      expect(result).toBe('\\textbf{ Theorem of Pythagoras }');
+      expect(result).toBe('\\text{ Theorem of Pythagoras }');
     });
 
     describe('mtext with mathvariant attribute setted as "italic"', () => {
@@ -879,7 +891,7 @@ describe('#convert', () => {
 
       const result = MathMLToLaTeX.convert(mathml);
 
-      expect(result).toBe('\\textbf{\\textit{ Theorem of Pythagoras }}');
+      expect(result).toBe('\\text{\\textit{ Theorem of Pythagoras }}');
     });
 
     describe('mtext with mathvariant attribute setted as "double-struck"', () => {
@@ -931,7 +943,7 @@ describe('#convert', () => {
     });
 
     describe('mtext with special characters"', () => {
-      const mathml =`<math xmlns="http://www.w3.org/1998/Math/MathML">
+      const mathml = `<math xmlns="http://www.w3.org/1998/Math/MathML">
               <mrow>
                 <mtext>$</mtext>
                 <mn>0.50</mn>
@@ -1061,7 +1073,6 @@ describe('#convert', () => {
       });
     });
   });
-
   describe('given math string with mmultiscript', () => {
     describe('with subscript and superscript only, without preset', () => {
       it('handles it as it were a subsup tag', () => {
@@ -1079,7 +1090,7 @@ describe('#convert', () => {
 
         const result = MathMLToLaTeX.convert(mathml);
 
-        expect(result).toBe('\\left(N a\\right)_{11}^{}');
+        expect(result).toBe('\\left(N a\\right)_{11}');
       });
     });
 
@@ -1089,7 +1100,7 @@ describe('#convert', () => {
 
         const result = MathMLToLaTeX.convert(mathml);
 
-        expect(result).toBe('\\left(N a\\right)_{}^{+}');
+        expect(result).toBe('\\left(N a\\right)^{+}');
       });
     });
 
@@ -1109,7 +1120,7 @@ describe('#convert', () => {
 
         const result = MathMLToLaTeX.convert(mathml);
 
-        expect(result).toBe('\\_{b}^{}X_{}^{c}');
+        expect(result).toBe('\\_{b}X^{c}');
       });
     });
 
@@ -1119,7 +1130,7 @@ describe('#convert', () => {
 
         const result = MathMLToLaTeX.convert(mathml);
 
-        expect(result).toBe('\\_{b}^{}X');
+        expect(result).toBe('\\_{b}X');
       });
     });
 

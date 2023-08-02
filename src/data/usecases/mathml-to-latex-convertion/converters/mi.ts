@@ -15,7 +15,7 @@ export class MI implements ToLaTeXConverter {
     if (normalizedValue === ' ') return Character.apply(normalizedValue);
 
     const trimmedValue = normalizedValue.trim();
-    return ` ${Character.apply(trimmedValue)}`;
+    return Character.apply(trimmedValue);
   }
 }
 
