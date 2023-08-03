@@ -68,7 +68,7 @@ class Matrix {
 
   apply(latexContents: string[]): string {
     const command = this._command;
-    const matrix = `\\begin{${command}}\n${latexContents.join('')}\n\\end{${command}}`;
+    const matrix = `\\begin{${command}}\n${latexContents.join(' ')}\n\\end{${command}}`;
 
     return command === this._genericCommand ? this._separators.wrap(matrix) : matrix;
   }

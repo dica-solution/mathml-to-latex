@@ -37,7 +37,7 @@ export class MMultiscripts implements ToLaTeXConverter {
     const subLatex = mathMLElementToLaTeXConverter(sub).convert();
     const supLatex = mathMLElementToLaTeXConverter(sup).convert();
 
-    return `\\_{${subLatex}}^{${supLatex}}`;
+    return `_{${subLatex}}^{${supLatex}}`;
   }
 
   private _postscriptLatex(): string {
