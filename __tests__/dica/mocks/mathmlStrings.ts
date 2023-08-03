@@ -96,3 +96,48 @@ export const mathWithUnderline = `
     <mo>_</mo>
   </math>
 `;
+
+export const mathMFencedWithTable = `
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+  <mfenced separators="" open="{" close="">
+    <mtable rowlines="none none" columnlines="none">
+      <mtr>
+        <mtd>
+          <mrow>
+            <mi>m</mi>
+            <msubsup>
+              <mo>∈</mo>
+              <mo>+</mo>
+              <mtext>*</mtext>
+            </msubsup>
+          </mrow>
+        </mtd>
+      </mtr>
+      <mtr>
+        <mtd>
+          <mrow>
+            <mi>m</mi>
+            <mo>≤</mo>
+            <mn>12</mn>
+          </mrow>
+        </mtd>
+      </mtr>
+    </mtable>
+    <mo>⇒</mo>
+    <mi>m</mi>
+    <mo>∈</mo>
+    <mfenced separators="" open="{" close="}">
+      <mn>1</mn>
+      <mo>;</mo>
+      <mn>2</mn>
+      <mo>;</mo>
+      <mn>3</mn>
+      <mo>;</mo>
+      <mo>…</mo>
+      <mo>;</mo>
+      <mn>11</mn>
+      <mo>;</mo>
+      <mn>12</mn>
+    </mfenced>
+  </mfenced>
+</math>`;

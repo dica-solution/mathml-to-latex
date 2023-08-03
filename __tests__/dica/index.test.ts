@@ -64,3 +64,15 @@ describe('given math string with double underline', () => {
     expect(result).toBe('\\_ \\_ \\_');
   });
 });
+
+describe('given math string with mfenced and table', () => {
+  it('wrap its content inside text command', () => {
+    const mathml = mathmlStrings.mathMFencedWithTable;
+
+    const result = MathMLToLaTeX.convert(mathml);
+
+    expect(result).toMatch(
+      '\\left\\{\\begin{matrix} \\begin{array}{l}m \\in_{+}^{\\text{*}} \\\\ m \\leq 12\\end{array} \\Rightarrow m \\in \\left\\{1 ; 2 ; 3 ; \\dots ; 11 ; 12\\right .\\} \\end{matrix}\\right .',
+    );
+  });
+});
