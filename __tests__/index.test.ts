@@ -359,7 +359,7 @@ describe('#convert', () => {
           const result = MathMLToLaTeX.convert(mathml);
 
           expect(result).toBe(
-            `f \\left(x\\right .) = \\left\\{\\begin{matrix} \\begin{array}{l}x^{2} , x < 0 \\\\ e^{x} , x \\geq 0\\end{array} \\end{matrix}\\right .`.replace(
+            `f \\left(x\\right .) = \\left\\{\\begin{matrix} \\begin{array}{l} x^{2} , x < 0 \\\\ e^{x} , x \\geq 0\\end{array} \\end{matrix}\\right .`.replace(
               /\n/g,
               '',
             ),
@@ -1110,7 +1110,7 @@ describe('#convert', () => {
 
         const result = MathMLToLaTeX.convert(mathml);
 
-        expect(result).toBe('\\_{b}^{a}X_{d}^{c}');
+        expect(result).toBe('_{b}^{a}X_{d}^{c}');
       });
     });
 
@@ -1120,7 +1120,7 @@ describe('#convert', () => {
 
         const result = MathMLToLaTeX.convert(mathml);
 
-        expect(result).toBe('\\_{b}X^{c}');
+        expect(result).toBe('_{b}X^{c}');
       });
     });
 
@@ -1130,7 +1130,7 @@ describe('#convert', () => {
 
         const result = MathMLToLaTeX.convert(mathml);
 
-        expect(result).toBe('\\_{b}X');
+        expect(result).toBe('_{b}X');
       });
     });
 
