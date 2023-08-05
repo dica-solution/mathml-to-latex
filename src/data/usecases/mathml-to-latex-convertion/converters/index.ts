@@ -21,3 +21,4 @@ export { MTr } from './mtr';
 export { MSpace } from './mspace';
 export { GenericSpacingWrapper } from './generic-spacing-wrapper';
 export { GenericUnderOver } from './generic-under-over';
+export { Mrow } from './mrow';
