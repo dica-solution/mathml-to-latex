@@ -359,7 +359,7 @@ describe('#convert', () => {
           const result = MathMLToLaTeX.convert(mathml);
 
           expect(result).toBe(
-            `f \\left(x\\right .) = \\left\\{\\begin{matrix} \\begin{array}{l}x^{2} , x < 0 \\\\ e^{x} , x \\geq 0\\end{array} \\end{matrix}\\right .`.replace(
+            `f \\left(x\\right .) = \\left\\{\\begin{matrix} \\begin{array}{l} x^{2} , x < 0 \\\\ e^{x} , x \\geq 0\\end{array} \\end{matrix}\\right .`.replace(
               /\n/g,
               '',
             ),
