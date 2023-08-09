@@ -14,9 +14,12 @@ export class MSub implements ToLaTeXConverter {
     const { name, children } = this._mathmlElement;
     const childrenLength = children.length;
 
-    if (childrenLength !== 2) throw new InvalidNumberOfChildrenError(name, 2, childrenLength);
+    if (childrenLength > 2) throw new InvalidNumberOfChildrenError(name, 2, childrenLength);
 
     const base = mathMLElementToLaTeXConverter(children[0]).convert();
+    if (childrenLength === 1) {
+      return `{${base}}`;
+    }
     const subscript = mathMLElementToLaTeXConverter(children[1]).convert();
 
     if (base.length > 1) {

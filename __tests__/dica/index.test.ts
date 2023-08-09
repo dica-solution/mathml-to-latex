@@ -175,6 +175,22 @@ describe('mathml with mmultiscripts', () => {
 
     expect(result).toMatch('x ^{14}. x');
   });
+
+  it('mmultiscripts with three element - one', () => {
+    const mathml = mathmlStrings.mathWithMmultiscripts3;
+
+    const result = MathMLToLaTeX.convert(mathml);
+
+    expect(result).toMatch('_{35}C l');
+  });
+
+  it('mmultiscripts with three element - two', () => {
+    const mathml = mathmlStrings.mathWithMmultiscripts4;
+
+    const result = MathMLToLaTeX.convert(mathml);
+
+    expect(result).toMatch('_{A_{1}}X');
+  });
 });
 
 describe('mathml with msub', () => {
@@ -192,6 +208,30 @@ describe('mathml with msub', () => {
     const result = MathMLToLaTeX.convert(mathml);
 
     expect(result).toMatch('\\overset{H_{2} S {O_{4}}_{\\text{} d a c} , {170}^{0} C}{\\rightarrow}');
+  });
+
+  it('msup with one element - 1', () => {
+    const mathml = mathmlStrings.mathWithMsub4;
+
+    const result = MathMLToLaTeX.convert(mathml);
+
+    expect(result).toMatch('C u {( N O}');
+  });
+
+  it('msup with one element - 2', () => {
+    const mathml = mathmlStrings.mathWithMsub5;
+
+    const result = MathMLToLaTeX.convert(mathml);
+
+    expect(result).toMatch('F e {( N O}');
+  });
+
+  it('msup with one element - 3', () => {
+    const mathml = mathmlStrings.mathWithMsub6;
+
+    const result = MathMLToLaTeX.convert(mathml);
+
+    expect(result).toMatch('F e C l_{2} + 2 A g N O_{3} \\rightarrow 2 A g C l \\downarrow + F e {( N O}');
   });
 });
 
@@ -221,6 +261,14 @@ describe('mathml with msup', () => {
 
     expect(result).toMatch('10 \\text{^}');
   });
+
+  it('msup with one element', () => {
+    const mathml = mathmlStrings.mathWithMsup4;
+
+    const result = MathMLToLaTeX.convert(mathml);
+
+    expect(result).toMatch('\\frac{1}{9} \\sqrt{{( 4 + x}}');
+  });
 });
 
 describe('mathml with mtable', () => {
@@ -240,5 +288,23 @@ describe('mathml with mtable', () => {
     expect(result).toMatch(
       '\\Delta = \\left | \\begin{array}{l}- 1 & 6 & 7 \\\\ - 2 & 2 & 2 \\\\ 1 & 2 & 2\\end{array} \\right | .',
     );
+  });
+});
+
+describe('mathml with mover', () => {
+  it('mover have one element', () => {
+    const mathml = mathmlStrings.mathWithMover1;
+
+    const result = MathMLToLaTeX.convert(mathml);
+
+    expect(result).toMatch('{\\rightarrow}');
+  });
+
+  it('mover have one element', () => {
+    const mathml = mathmlStrings.mathWithMover2;
+
+    const result = MathMLToLaTeX.convert(mathml);
+
+    expect(result).toMatch('{\\leftrightarrows}');
   });
 });

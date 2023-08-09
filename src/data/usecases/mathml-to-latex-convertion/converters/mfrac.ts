@@ -14,9 +14,10 @@ export class MFrac implements ToLaTeXConverter {
     const { children, name } = this._mathmlElement;
     const childrenLength = children.length;
 
-    if (childrenLength !== 2) throw new InvalidNumberOfChildrenError(name, 2, childrenLength);
+    if (childrenLength > 2) throw new InvalidNumberOfChildrenError(name, 2, childrenLength);
 
     const num = mathMLElementToLaTeXConverter(children[0]).convert();
+    if (childrenLength === 1) return `\\frac{${num}}{}`;
     const den = mathMLElementToLaTeXConverter(children[1]).convert();
 
     if (this._isBevelled()) return `${this._wrapIfMoreThanOneChar(num)}/${this._wrapIfMoreThanOneChar(den)}`;

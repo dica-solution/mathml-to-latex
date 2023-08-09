@@ -14,9 +14,10 @@ export class MSup implements ToLaTeXConverter {
     const { name, children } = this._mathmlElement;
     const childrenLength = children.length;
 
-    if (childrenLength !== 2) throw new InvalidNumberOfChildrenError(name, 2, childrenLength);
+    if (childrenLength > 2) throw new InvalidNumberOfChildrenError(name, 2, childrenLength);
 
     const base = mathMLElementToLaTeXConverter(children[0]).convert();
+    if (childrenLength === 1) return `{${base}}`;
     const exponent = mathMLElementToLaTeXConverter(children[1]).convert();
 
     if (exponent.trim() === '\\hat') {

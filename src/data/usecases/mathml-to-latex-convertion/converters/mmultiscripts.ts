@@ -18,7 +18,37 @@ export class MMultiscripts implements ToLaTeXConverter {
 
     const baseContent = mathMLElementToLaTeXConverter(children[0]).convert();
 
+    if (childrenLength === 3) return this._convert();
+
     return this._prescriptLatex() + this._wrapInParenthesisIfThereIsSpace(baseContent) + this._postscriptLatex();
+  }
+
+  private _convert(): string {
+    const { children } = this._mathmlElement;
+    let sub;
+    let base;
+    let sup;
+
+    let havePrescript = false;
+
+    if (this._isPrescripts(children[1])) {
+      sub = children[2];
+      base = children[0];
+    } else if (!this._isPrescripts(children[1])) {
+      havePrescript = true;
+      base = children[0];
+      sub = children[1];
+      sup = children[2];
+    } else return '';
+
+    const subLatex = mathMLElementToLaTeXConverter(sub).convert();
+    const baseLatex = mathMLElementToLaTeXConverter(base).convert();
+
+    if (havePrescript && sup) {
+      const supLatex = mathMLElementToLaTeXConverter(sup).convert();
+      return `${this._wrapInParenthesisIfThereIsSpace(baseLatex)}_{${subLatex}}^{${supLatex}}`;
+    }
+    return `_{${subLatex}}${this._wrapInParenthesisIfThereIsSpace(baseLatex)}`;
   }
 
   private _prescriptLatex(): string {
