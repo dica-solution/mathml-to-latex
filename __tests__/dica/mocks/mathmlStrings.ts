@@ -411,6 +411,29 @@ export const mathWithMmultiscripts2 = `
 </math>
 `;
 
+export const mathWithMmultiscripts3 = `
+  <math xmlns="http://www.w3.org/1998/Math/MathML">
+    <mmultiscripts>
+      <mi>C</mi>
+      <mprescripts></mprescripts>
+      <mn>35</mn>
+    </mmultiscripts>
+    <mi>l</mi>
+  </math>
+`;
+
+export const mathWithMmultiscripts4 = `
+  <math xmlns="http://www.w3.org/1998/Math/MathML">
+    <mmultiscripts>
+      <mi>X</mi>
+      <mprescripts></mprescripts>
+      <msub>
+        <mi>A</mi>
+        <mn>1</mn>
+      </msub>
+    </mmultiscripts>
+  </math>`;
+
 export const mathWithMsub1 = `
 <math xmlns="http://www.w3.org/1998/Math/MathML">
   <msub>
@@ -463,6 +486,55 @@ export const mathWithMsub2 = `
   </mover>
 </math>
 `;
+
+export const mathWithMsup3 = `<math xmlns="http://www.w3.org/1998/Math/MathML"><msup><mn>10</mn><mo>^</mo></msup></math>`;
+
+export const mathWithMsub4 = `<math xmlns="http://www.w3.org/1998/Math/MathML"><mi>C</mi><mi>u</mi><msub><mrow><mo>(</mo><mi>N</mi><mi>O</mi></mrow></msub></math>`;
+
+export const mathWithMsub5 = `<math xmlns="http://www.w3.org/1998/Math/MathML"><mi>F</mi><mi>e</mi><msub><mrow><mo>(</mo><mi>N</mi><mi>O</mi></mrow></msub></math>
+`;
+export const mathWithMsub6 = `
+  <math xmlns="http://www.w3.org/1998/Math/MathML">
+    <mi>F</mi>
+    <mi>e</mi>
+    <mi>C</mi>
+    <msub>
+      <mi>l</mi>
+      <mn>2</mn>
+    </msub>
+    <mo> </mo>
+    <mo>+</mo>
+    <mo> </mo>
+    <mn>2</mn>
+    <mi>A</mi>
+    <mi>g</mi>
+    <mi>N</mi>
+    <msub>
+      <mi>O</mi>
+      <mn>3</mn>
+    </msub>
+    <mo> </mo>
+    <mo>→</mo>
+    <mo> </mo>
+    <mn>2</mn>
+    <mi>A</mi>
+    <mi>g</mi>
+    <mi>C</mi>
+    <mi>l</mi>
+    <mo>↓</mo>
+    <mo> </mo>
+    <mo>+</mo>
+    <mo> </mo>
+    <mi>F</mi>
+    <mi>e</mi>
+    <msub>
+      <mrow>
+        <mo>(</mo>
+        <mi>N</mi>
+        <mi>O</mi>
+      </mrow>
+    </msub>
+  </math>`;
 
 export const mathWithMsup1 = `
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -551,7 +623,24 @@ export const mathWithMsup2 = `
 </math>
 `;
 
-export const mathWithMsup3 = `<math xmlns="http://www.w3.org/1998/Math/MathML"><msup><mn>10</mn><mo>^</mo></msup></math>`;
+export const mathWithMsup4 = `
+  <math xmlns="http://www.w3.org/1998/Math/MathML">
+    <mfrac>
+      <mn>1</mn>
+      <mn>9</mn>
+    </mfrac>
+    <msqrt>
+      <msup>
+        <mrow>
+          <mo>(</mo>
+          <mn>4</mn>
+          <mo>+</mo>
+          <mi>x</mi>
+        </mrow>
+      </msup>
+    </msqrt>
+  </math>
+`;
 
 export const mathWithMtable1 = `
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -647,3 +736,6 @@ export const mathWithMtable2 = `
 </mrow>
 <mo>.</mo>
 </math>`;
+
+export const mathWithMover1 = `<math xmlns="http://www.w3.org/1998/Math/MathML"><mover><mo>→</mo></mover></math>`;
+export const mathWithMover2 = `<math xmlns="http://www.w3.org/1998/Math/MathML"><mover><mo stretchy="false">⇆ </mo></mover></math>`;
