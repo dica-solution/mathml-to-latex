@@ -15,9 +15,12 @@ export class GenericUnderOver implements ToLaTeXConverter {
     const { name, children } = this._mathmlElement;
     const childrenLength = children.length;
 
-    if (childrenLength !== 2) throw new InvalidNumberOfChildrenError(name, 2, childrenLength);
+    if (childrenLength > 2) throw new InvalidNumberOfChildrenError(name, 2, childrenLength);
 
     const content = mathMLElementToLaTeXConverter(children[0]).convert();
+    if (childrenLength === 1) {
+      return `{${content}}`;
+    }
     const accent = mathMLElementToLaTeXConverter(children[1]).convert();
 
     return this._applyCommand(content, accent);
